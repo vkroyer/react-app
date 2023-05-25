@@ -5,21 +5,11 @@ import Button from "./components/Button";
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
 
-  const alertChildren = (
-    <>
-      <p>My alert</p>
-      <button
-        type="button"
-        className="btn-close"
-        aria-label="Close"
-        onClick={() => setAlertVisibility(false)}
-      ></button>
-    </>
-  );
-
   return (
     <>
-      {alertVisible && <Alert children={alertChildren}></Alert>}
+      {alertVisible && (
+        <Alert onClose={() => setAlertVisibility(false)}>My alert</Alert>
+      )}
       <Button
         color="info"
         onClick={() => {
